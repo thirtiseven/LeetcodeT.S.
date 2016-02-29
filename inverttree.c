@@ -1,14 +1,12 @@
-
-
- struct TreeNode {
+typedef struct {
     int val;
     struct TreeNode *left;
     struct TreeNode *right;
-};
+} TreeNode;
 
-struct TreeNode* invertTree(struct TreeNode* root) {
-    if(root==NULL)
-        return;
+TreeNode *invertTree(TreeNode *root) {
+    if(root == NULL)
+        return NULL;
     struct TreeNode *tmp = root->left;
     root->left = invertTree(root->right);
     root->right = invertTree(tmp);
